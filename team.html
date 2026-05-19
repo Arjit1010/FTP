@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team — First Tactical Projects</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ---- Team page extras ---- */
+
+    /* Director photo */
+    .team-photo-img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      object-position: 100% 25%;
+      display: block;
+    }
+
+    /* Experience logos strip under each director */
+    .exp-logos {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border);
+      background: var(--light-gray);
+    }
+
+    .exp-logos-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid-gray);
+      white-space: nowrap;
+    }
+
+    .exp-logo {
+      height: 22px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.55;
+      transition: filter 0.2s, opacity 0.2s;
+    }
+
+    .exp-logo:hover { filter: grayscale(0%); opacity: 1; }
+
+    /* Partner logo strip sections */
+    .partner-section {
+      padding: 3.5rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .partner-section:first-of-type { border-top: none; }
+
+    .partner-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .partner-header h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      color: #1a1a1a;
+    }
+
+    .partner-header p {
+      font-size: 0.83rem;
+      color: var(--mid-gray);
+      margin: 0;
+    }
+
+    .logo-strip {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .partner-logo {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.5;
+      transition: filter 0.25s, opacity 0.25s;
+    }
+
+    .partner-logo:hover { filter: grayscale(0%); opacity: 1; }
+
+    .logo-bg-teal .partner-logo { height: 22px; filter: none; opacity: 1; }
+
+    .partners-wrap {
+      background: var(--light-gray);
+    }
+
+    .partner-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0 0;
+    }
+
+    /* Credentials bar on dark */
+    .credentials-bar { background: #0d0d0d; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-mark">FTP</span>
+        <span class="logo-text">First Tactical Projects</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">News &amp; Case Studies</a></li>
+        <li><a href="team.html" class="active">Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="index.html">Home</a>
+      <a href="projects.html">News &amp; Case Studies</a>
+      <a href="team.html">Team</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="container">
+      <div class="section-label">Leadership</div>
+      <h1>The team</h1>
+      <p class="page-header-sub">FTP's active leadership team brings together 60+ years of combined experience delivering complex energy and capital projects globally. We deploy that experience directly on every project we develop.</p>
+    </div>
+  </header>
+
+  <!-- ===================== ACTIVE DIRECTORS ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Active directors</div>
+
+      <div class="team-grid">
+
+        <!-- Allan Whitelaw -->
+        <div class="team-card">
+          <img
+            src="https://res.cloudinary.com/dvw40hnfw/image/upload/v1779131084/allan-whitelaw_2_te40qr.png"
+            alt="Allan Whitelaw — Commercial Director, First Tactical Projects"
+            class="team-photo-img"
+          />
+          <div class="team-card-body">
+            <h3>Allan Whitelaw</h3>
+            <p class="team-title">Commercial Director</p>
+            <p class="team-bio">Allan brings 35 years of experience in energy generation, having spent his career at Balfour Beatty Kilpatrick delivering projects in new energy technologies. He has provided A&amp;D advisory services to energy companies on transactions exceeding £150M and has led the commercial acquisition, restructuring, and turnaround of multiple energy assets and portfolios.</p>
+            <div class="team-tags">
+              <span>Energy generation</span>
+              <span>A&amp;D advisory</span>
+              <span>Asset restructuring</span>
+              <span>New energy technologies</span>
+            </div>
+          </div>
+          <!-- Experience logos -->
+          <div class="exp-logos">
+            <span class="exp-logos-label">Career</span>
+            <img src="https://res.cloudinary.com/dvw40hnfw/image/upload/v1779128836/logo-balfour-beatty_aso9zm.png" alt="Balfour Beatty Kilpatrick" class="exp-logo" style="height:50px;" />
+            <img src="https://res.cloudinary.com/dvw40hnfw/image/upload/v1779128837/logo-philips_ypr0v2.png" alt="Philips" class="exp-logo" style="height:20px;" />
+        </div>
+        </div>
+        <!-- Arjit Gupta -->
+        <div class="team-card">
+          <img
+            src="https://res.cloudinary.com/dvw40hnfw/image/upload/v1777232790/Arjit_Gupta_1_ojtkvc.jpg"
+            alt="Arjit Gupta — Project Director, First Tactical Projects"
+            class="team-photo-img"
+          />
+          <div class="team-card-body">
+            <h3>Arjit Gupta</h3>
+            <p class="team-title">Project Director</p>
+            <p class="team-bio">Arjit brings 18 years of experience at Shell, where he delivered complex projects with headline sizes ranging from £100M to £2Bn. His background spans onshore and offshore operations, and he has delivered over £100M in value across energy A&amp;D transactions. At FTP, Arjit leads project structuring, financing, and stakeholder development.</p>
+            <div class="team-tags">
+              <span>Complex project delivery</span>
+              <span>Onshore &amp; offshore</span>
+              <span>Energy A&amp;D</span>
+              <span>Project finance</span>
+            </div>
+          </div>
+          <!-- Experience logos -->
+          <div class="exp-logos">
+            <span class="exp-logos-label">Career</span>
+            <img src="https://res.cloudinary.com/dvw40hnfw/image/upload/v1779128837/logo-shell_sx8ixi.png" alt="Shell" class="exp-logo" style="height:40px;" />
+            <img src="https://res.cloudinary.com/dvw40hnfw/image/upload/v1779128837/logo-lbs_eulhte.png" alt="London Business School" class="exp-logo" style="height:40px;" />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Experience logo note -->
+      <p style="font-size:0.78rem; color: var(--mid-gray); margin-top:1.25rem; font-style:italic;">
+        Career logos reflect the prior employment history of individual directors, not partnerships or endorsements by those organisations.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ===================== PARTNER RELATIONSHIPS ===================== -->
+  <section class="section partners-wrap" id="partners">
+    <div class="container">
+      <div class="section-label">Relationships</div>
+      <h2 class="section-title" style="margin-bottom:0.5rem;">Our network</h2>
+      <p class="section-intro">FTP works with investment-grade EPC contractors, specialist OEM suppliers, and global capital partners. The relationships below reflect the team's established working connections across careers and active projects.</p>
+
+      <!-- EPC / OEM -->
+      <div class="partner-section">
+        <div class="partner-header">
+          <h3>EPC &amp; OEM Relations</h3>
+          <p>Engineering, procurement &amp; construction — plant and equipment suppliers</p>
+        </div>
+        <div class="logo-strip">
+
+          <img src="https://res.cloudinary.com/dvw40hnfw/image/upload/v1779128836/logo-balfour-beatty_aso9zm.png" alt="Balfour Beatty Kilpatrick" class="partner-logo" style="height:60px;" />
+         
+          <img src="https://res.cloudinary.com/dvw40hnfw/image/upload/v1779129805/siemens-logo-0_fr9ves.png" alt="Siemens" class="partner-logo" style="height:120px;" />
+          
+          <img src="https://res.cloudinary.com/dvw40hnfw/image/upload/v1779128837/logo-schneider_wikubm.png" alt="Schneider Electric" class="partner-logo" style="height:90px;" />
+
+          <img src="https://res.cloudinary.com/dvw40hnfw/image/upload/v1779128836/logo-boyd_cv9uov.png"       alt="Boyd"              class="partner-logo" style="height:70px;" />
+
+          <img src="https://res.cloudinary.com/dvw40hnfw/image/upload/v1779128836/logo-eos_tmt04o.png"        alt="EOS Energy Optimisation Solutions" class="partner-logo" style="height:25px;" />
+
+        </div>
+      </div>
+
+      <div class="partner-divider"></div>
+
+      <!-- Capital Partnerships -->
+      <div class="partner-section">
+        <div class="partner-header">
+          <h3>Capital Partnerships</h3>
+          <p>Infrastructure funds, project finance lenders &amp; strategic investors</p>
+        </div>
+        <div class="logo-strip">
+
+          <div class="logo-bg-pad">
+            <img src="https://res.cloudinary.com/dvw40hnfw/image/upload/v1779128836/logo-kkr_huadx9.png" alt="KKR" class="partner-logo" />
+          </div>
+
+          <img src="https://res.cloudinary.com/dvw40hnfw/image/upload/v1779128837/logo-quinbrook_qjwqr8.png" alt="Quinbrook Infrastructure Partners" class="partner-logo" style="height:28px;" />
+
+          <img src="https://res.cloudinary.com/dvw40hnfw/image/upload/v1779128836/logo-cube_uzu3c5.png"     alt="Cube Infrastructure Managers"     class="partner-logo" style="height:28px;" />
+
+          <img src="https://res.cloudinary.com/dvw40hnfw/image/upload/v1779128837/logo-mizuho_cnkcyw.jpg"   alt="Mizuho"                           class="partner-logo" style="height:32px; border-radius:3px;" />
+
+          <img src="https://res.cloudinary.com/dvw40hnfw/image/upload/v1779128836/logo-aws_its56m.png"      alt="AWS"                              class="partner-logo" style="height:32px;" />
+
+        </div>
+      </div>
+
+      <p style="font-size:0.78rem; color: var(--mid-gray); margin-top:2rem; font-style:italic;">
+        Logos reflect established working relationships and prior engagement across the team's careers and FTP's active project development. They do not imply committed capital or binding commercial agreements unless separately announced.
+      </p>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-mark">FTP</span>
+          <p>First Tactical Projects Limited<br>
+          41 Charlotte Square, Edinburgh EH2 4HQ<br>
+          Company No. SC671787</p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="projects.html">News &amp; Case Studies</a>
+          <a href="team.html">Team</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 First Tactical Projects Limited. All rights reserved. Registered in Scotland.</p>
+        <p class="footer-disclaimer">This website is for informational purposes only and does not constitute an offer to invest or a solicitation of investment.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

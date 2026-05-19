@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>First Tactical Projects — Infrastructure Development</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-mark">FTP</span>
+        <span class="logo-text">First Tactical Projects</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="projects.html">News & Case Studies</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="index.html">Home</a>
+      <a href="projects.html">News & Case Studies</a>
+      <a href="team.html">Team</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-content">
+            <h1 class="hero-headline">
+        Developing the infrastructure<br>
+        <em>Scotland needs next.</em>
+      </h1>
+      <p class="hero-sub">
+        First Tactical Projects is a specialist developer focused on energy and digital infrastructure development. We originate, structure, and deliver projects from concept to financial close.
+      </p>
+      <div class="hero-cta">
+ <!--       <a href="projects.html" class="btn btn-primary">View our projects</a> -->
+	<a href="#projects-preview" class="btn btn-primary">View our projects</a>
+        <a href="team.html" class="btn btn-ghost">Meet the team</a>
+      </div>
+    </div>
+    <div class="hero-stat-bar">
+      <div class="stat">
+        <span class="stat-num">20+ Projects</span>
+        <span class="stat-label">Combined team track record</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">£2Bn+</span>
+        <span class="stat-label">Headline CAPEX projects delivered</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">Global Experience</span>
+        <span class="stat-label">10 countries in 3 continents</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">60 Years</span>
+        <span class="stat-label">Combined leadership experience</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE ARE -->
+  <section class="section who">
+    <div class="container">
+      <div class="section-label">Who we are</div>
+      <div class="who-grid">
+        <div class="who-text">
+          <h2>We don't advise on infrastructure. We build it.</h2>
+          <p>First Tactical Projects is a Scottish infrastructure developer built around a leadership team with over 60 years of combined experience delivering complex energy and capital projects globally. We work with global capital partners and investment grade EPC vendors to take sites from concept to construction — with the investment relationships and development discipline to see it through.
+</p>
+          <a href="team.html" class="text-link">Meet the team &rarr;</a>
+        </div>
+        <div class="who-pillars">
+          <div class="pillar">
+            <div class="pillar-icon">&#9670;</div>
+            <h3>Origination</h3>
+            <p>We identify sites, secure land rights, and establish the commercial and technical foundations that make projects viable from day one.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">&#9670;</div>
+            <h3>Development</h3>
+            <p>Permitting, grid connections, EIA, stakeholder engagement — we manage the full pre-construction development workstream end to end.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">&#9670;</div>
+            <h3>Structuring</h3>
+            <p>We design the commercial and financing structures — SPVs, PPAs, EPC contracts, investor terms — that take projects to financial close.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS PREVIEW -->
+  <section class="section projects-preview" id="projects-preview">
+    <div class="container">
+      <div class="section-label">Active pipeline</div>
+      <h2 class="section-title">Projects in development</h2>
+      <div class="project-cards">
+
+        <article class="project-card" onclick="window.location='projects.html#forss'">
+          <div class="project-card-top data-centre">
+            <span class="project-tag">Data Centre</span>
+            <span class="project-mw">49 MW</span>
+          </div>
+          <div class="project-card-body">
+            <h3>Colocated Data Centre</h3>
+            <p class="project-location">Confidential</p>
+            <p>49 MW IT load colocation campus. Tier III+ target, ≤1.30 PUE design, 100% renewable power. Phase 1 first IT load targeted Q1 2029.</p>
+		<p>Further details under NDA.</p>
+            <div class="project-meta">
+		<span>Pre-Development stage</span>
+            </div>
+          </div>
+        </article>
+
+<!--       <article class="project-card" onclick="window.location='projects.html#portnig'">
+          <div class="project-card-top erf">
+            <span class="project-tag">Energy Recovery</span>
+            <span class="project-mw">25 MW</span>
+          </div>
+          <div class="project-card-body">
+            <h3>Port Nigg ERF</h3>
+            <p class="project-location">Cromarty Firth, Scotland</p>
+            <p>25 MW CHP Energy Recovery Facility within the Port Nigg Freeport boundary. Private wire baseload power for port tenants. First power targeted 2029.</p>
+            <div class="project-meta">
+              <span>£250M–£300M capex</span>
+              <span>Freeport Zone 1</span>
+            </div>
+          </div>
+        </article>
+-->
+        <article class="project-card" onclick="window.location='projects.html#dounreay'">
+          <div class="project-card-top data-centre">
+            <span class="project-tag">Data Centre & BESS </span>
+            <span class="project-mw">Undisclosed</span>
+          </div>
+          <div class="project-card-body">
+            <h3>Colocated Data Centre & On-site BESS</h3>
+            <p class="project-location">Confidential</p>
+            <div class="project-meta">
+              <span>Concept stage</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      <div class="projects-cta">
+        <a href="projects.html" class="btn btn-primary">Latest News & Case Studies</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="section approach">
+    <div class="container">
+      <div class="approach-inner">
+        <div class="approach-quote">
+          <blockquote>
+            "We carry the development risk, do the work, and hand landowners and sponsors a project that is consented, structured, and ready to build."
+          </blockquote>
+          <cite>— FTP Leadership</cite>
+        </div>
+        <div class="approach-steps">
+          <div class="step">
+            <span class="step-num">01</span>
+            <div>
+              <h4>Site &amp; land</h4>
+              <p>We identify sites and negotiate land access, exclusivity, and option agreements on behalf of the project.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">02</span>
+            <div>
+              <h4>Consents &amp; permitting</h4>
+              <p>We manage planning, EIA, grid connection, and regulatory approvals through to consent.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">03</span>
+            <div>
+              <h4>Commercial &amp; finance</h4>
+              <p>PPAs, offtake agreements, SPV structures, and investor terms — developed alongside the project.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">04</span>
+            <div>
+              <h4>Financial close</h4>
+              <p>We take projects to RTB and support the sponsor or investor through to financial close and EPC appointment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-mark">FTP</span>
+          <p>First Tactical Projects Limited<br>
+          41 Charlotte Square, Edinburgh EH2 4HQ<br>
+          Company No. SC671787</p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Case Studies</a>
+          <a href="team.html">Team</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 First Tactical Projects Limited. All rights reserved. Registered in Scotland.</p>
+        <p class="footer-disclaimer">This website is for informational purposes only and does not constitute an offer to invest or a solicitation of investment.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

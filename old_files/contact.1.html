@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — First Tactical Projects</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-mark">FTP</span>
+        <span class="logo-text">First Tactical Projects</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">News & Case Studies</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="index.html">Home</a>
+      <a href="projects.html">News & Case Studies</a>
+      <a href="team.html">Team</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="container">
+      <div class="section-label">Get in touch</div>
+      <h1>Contact FTP</h1>
+      <p class="page-header-sub">We welcome enquiries from landowners, potential offtake partners, colocation tenants, and capital partners. Initial project information is available under NDA.</p>
+    </div>
+  </header>
+
+  <!-- CONTACT SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div class="contact-info">
+          <h2>First Tactical Projects Limited</h2>
+
+          <div class="contact-block">
+            <h4>Registered office</h4>
+            <p>41 Charlotte Square<br>Edinburgh<br>EH2 4HQ<br>Scotland</p>
+          </div>
+
+          <div class="contact-block">
+            <h4>Company registration</h4>
+            <p>Registered in Scotland<br>Company No. SC671787</p>
+          </div>
+
+          <div class="contact-block">
+            <h4>Project enquiries</h4>
+            <p>For project-specific enquiries, colocation tenancy, offtake discussions, or investor relations, please use the contact form and state the relevant project. We will respond within two business days.</p>
+          </div>
+
+          <div class="contact-block">
+            <h4>NDA requests</h4>
+            <p>Full project detail — including technical specifications, financial modelling, and commercial terms — is available to qualified parties under a mutual non-disclosure agreement. Please indicate your interest in the form.</p>
+          </div>
+
+          <div class="contact-topics">
+            <h4>Areas of enquiry</h4>
+            <div class="topic-tags">
+              <span>Energy Recovery Facility</span>
+              <span>Colocation tenancy</span>
+              <span>Offtake / PPA</span>
+              <span>Land &amp; site</span>
+              <span>Investment</span>
+              <span>Partnership</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">Full name <span class="required">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label for="org">Organisation</label>
+              <input type="text" id="org" name="org" placeholder="Your company or organisation" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email address <span class="required">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@organisation.com" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">Enquiry type <span class="required">*</span></label>
+              <select id="subject" name="subject" required>
+                <option value="" disabled selected>Select an area of enquiry</option>
+                <option value="ERF">Energy Recovery Facility</option>
+                <option value="colo">Colocation tenancy</option>
+                <option value="offtake">Offtake / PPA</option>
+                <option value="investment">Investment / capital</option>
+                <option value="land">Land &amp; site</option>
+                <option value="nda">NDA request</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message <span class="required">*</span></label>
+              <textarea id="message" name="message" rows="6" placeholder="Please describe your interest or enquiry. We will respond within two business days." required></textarea>
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" id="consent" name="consent" required />
+              <label for="consent">I consent to FTP storing my contact details for the purpose of responding to this enquiry.</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Send enquiry</button>
+            <div class="form-notice" id="formNotice"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo-mark">FTP</span>
+          <p>First Tactical Projects Limited<br>
+          41 Charlotte Square, Edinburgh EH2 4HQ<br>
+          Company No. SC671787</p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="team.html">Team</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 First Tactical Projects Limited. All rights reserved. Registered in Scotland.</p>
+        <p class="footer-disclaimer">This website is for informational purposes only and does not constitute an offer to invest or a solicitation of investment.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
