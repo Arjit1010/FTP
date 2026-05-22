@@ -1,409 +1,890 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Port Nigg ERF — Case Study — First Tactical Projects</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    /* ---- Case study article styles ---- */
-    :root {
-      --ink: #1a1a1a;
-      --muted: #5a5a5a;
-      --rule: #d4c9b8;
-      --accent: #1a5c3a;
-      --accent-light: #e8f2ec;
-      --warm: #faf9f7;
-      --ftp: #0e2d52;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Port Nigg ERF — Case Study — First Tactical Projects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1a16;
+    --ink-mid: #2e3d36;
+    --muted: #637068;
+    --rule: #d6cfc2;
+    --rule-light: #eae5dc;
+    --accent: #1a5c3a;
+    --accent-mid: #2a6b55;
+    --accent-light: #e6efe9;
+    --accent-pale: #f2f6f3;
+    --ftp: #0e2d52;
+    --ftp-dark: #0a2240;
+    --ftp-deeper: #071830;
+    --warm: #f8f5ef;
+    --warm-dark: #f0ebe0;
+    --white: #ffffff;
+    --gold: #b8975a;
+    --gold-light: #f5edd8;
+    --slate: #1e3a5f;
+  }
 
-    .cs-wrap {
-      font-family: 'DM Sans', sans-serif;
-      color: var(--ink);
-      background: #fff;
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 3rem 2rem 4rem;
-    }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
-    .cs-back {
-      display: inline-block;
-      font-size: 0.83rem;
-      font-weight: 500;
-      color: var(--accent);
-      margin-bottom: 2rem;
-      letter-spacing: 0.03em;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
-    .cs-back:hover { border-color: var(--accent); }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
 
-    .cs-masthead {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 2px solid var(--ftp);
-    }
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(14, 45, 82, 0.97);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    height: 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-brand {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .nav-brand span { color: var(--gold); }
+  .nav-meta {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+  .nav-home-link {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .nav-home-link:hover { color: #fff; }
 
-    .cs-wordmark {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: var(--ftp);
-      text-transform: uppercase;
-    }
+  /* ── HERO ── */
+  .hero {
+    margin-top: 60px;
+    position: relative;
+    background: var(--ftp-deeper);
+    min-height: 530px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 90% 60% at 65% 35%, rgba(26,92,58,0.35) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 70% at 5% 85%, rgba(184,151,90,0.08) 0%, transparent 55%),
+      linear-gradient(155deg, #071830 0%, #051225 50%, #030c1a 100%);
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  /* Scotland accent bar */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--accent) 0%, var(--gold) 50%, var(--ftp) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 3rem 3.5rem;
+    max-width: 820px;
+  }
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.67rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 3px;
+    padding: 0.22rem 0.65rem;
+  }
+  .hero-tag.primary {
+    color: var(--gold);
+    border-color: rgba(184,151,90,0.4);
+    background: rgba(184,151,90,0.08);
+  }
+  .hero-tag.scotland {
+    color: #80c8e8;
+    border-color: rgba(0,120,180,0.35);
+    background: rgba(0,120,180,0.08);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.12;
+    color: #fff;
+    margin-bottom: 1.25rem;
+    max-width: 720px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: rgba(255,255,255,0.72);
+  }
+  .hero-deck {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: rgba(255,255,255,0.58);
+    max-width: 610px;
+    margin-bottom: 2rem;
+  }
+  .hero-authors {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.10);
+    padding-top: 1.25rem;
+  }
+  .author-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--ftp));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: #fff;
+    flex-shrink: 0;
+    letter-spacing: 0.04em;
+  }
+  .hero-author-text {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.52);
+    line-height: 1.5;
+  }
+  .hero-author-text strong { color: rgba(255,255,255,0.82); font-weight: 500; }
 
-    .cs-wordmark-sub {
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 3px;
-    }
+  /* ── STAT BAR ── */
+  .stat-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: sticky;
+    top: 60px;
+    z-index: 50;
+  }
+  .stat-item {
+    padding: 1.1rem 1.5rem;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--ftp);
+    line-height: 1.15;
+  }
+  .stat-sub {
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
 
-    .cs-doc-type {
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-align: right;
-      line-height: 1.6;
-    }
+  /* ── LAYOUT ── */
+  .page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3.5rem;
+    padding: 3.5rem 0 4rem;
+    align-items: start;
+  }
 
-    .cs-kicker {
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-    }
+  /* ── BODY CONTENT ── */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+  .prose {
+    font-size: 0.955rem;
+    line-height: 1.82;
+    color: var(--ink-mid);
+  }
+  .prose p { margin-bottom: 1.1rem; }
+  .prose p:last-child { margin-bottom: 0; }
+  .section-block {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--rule-light);
+  }
+  .section-block:first-child { border-top: none; padding-top: 0; }
 
-    .cs-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      line-height: 1.18;
-      margin-bottom: 1rem;
-      color: var(--ink);
-    }
+  /* ── CALLOUTS ── */
+  .callout {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+  }
+  .callout p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: #1d3d30;
+    margin: 0;
+  }
+  .callout-gold {
+    background: var(--gold-light);
+    border-left-color: var(--gold);
+  }
+  .callout-gold p { color: #5a3d10; }
+  .callout-slate {
+    background: #eef2f7;
+    border-left-color: var(--slate);
+  }
+  .callout-slate p { color: #1e3a5f; }
 
-    .cs-deck {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: var(--muted);
-      margin-bottom: 1.75rem;
-      max-width: 640px;
-    }
+  /* ── DELIVERABLES GRID ── */
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    margin-top: 1rem;
+  }
+  .del-card {
+    background: var(--white);
+    border: 0.5px solid var(--rule);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+  }
+  .del-card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.35rem;
+  }
+  .del-card-body {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--muted);
+  }
 
-    .cs-author-block {
-      background: var(--warm);
-      border: 0.5px solid var(--rule);
-      border-radius: 10px;
-      padding: 0.9rem 1.25rem;
-      margin-bottom: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
+  /* ── PILLS ── */
+  .pills { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1rem; }
+  .pill {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    padding: 0.28rem 0.8rem;
+    font-size: 0.75rem;
+    color: var(--ink-mid);
+  }
 
-    .cs-author-name { font-size: 0.97rem; font-weight: 500; color: var(--ink); }
-    .cs-author-roles { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+  /* ── OUTCOME BANNER ── */
+  .outcome-banner {
+    background: var(--ftp-deeper);
+    border-radius: 12px;
+    padding: 2rem 2.25rem;
+    margin-top: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .outcome-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(26,92,58,0.35) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+  }
+  .outcome-banner-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.65rem;
+  }
+  .outcome-banner p {
+    font-size: 0.92rem;
+    line-height: 1.72;
+    color: rgba(255,255,255,0.75);
+    position: relative;
+    z-index: 1;
+  }
 
-    .cs-rule { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
+  /* ── INSIGHTS ── */
+  .insights { display: flex; flex-direction: column; gap: 1.1rem; margin-top: 1rem; }
+  .insight-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .insight-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--rule);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 2rem;
+    text-align: center;
+  }
+  .insight-text {
+    font-size: 0.84rem;
+    line-height: 1.65;
+    color: var(--ink-mid);
+    padding-top: 0.15rem;
+  }
 
-    .cs-meta {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-    }
+  /* ── SIDEBAR ── */
+  .sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+  .sidebar-card {
+    background: var(--white);
+    border: 0.5px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .sidebar-card-head {
+    background: var(--ftp);
+    padding: 0.7rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .sidebar-card-head-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+  .sidebar-card-head-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+  .sidebar-card-body { padding: 1.1rem 1.2rem; }
 
-    .cs-meta-item { display: flex; flex-direction: column; gap: 2px; }
-    .cs-meta-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
-    .cs-meta-value { font-size: 13px; font-weight: 500; color: var(--ink); }
+  .kv-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--rule-light);
+    gap: 1rem;
+  }
+  .kv-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .kv-key { font-size: 0.75rem; color: var(--muted); flex-shrink: 0; }
+  .kv-val {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: right;
+    line-height: 1.4;
+  }
+  .kv-val.accent { color: var(--accent); }
+  .kv-val.gold { color: var(--gold); }
 
-    .cs-callout {
-      background: var(--accent-light);
-      border-left: 3px solid var(--accent);
-      padding: 1.25rem 1.5rem;
-      margin: 1.75rem 0;
-      border-radius: 0 8px 8px 0;
-    }
+  /* Component list */
+  .comp-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .comp-row { display: flex; align-items: center; gap: 0.65rem; font-size: 0.8rem; }
+  .comp-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .comp-dot.erf      { background: #c0392b; }
+  .comp-dot.chp      { background: var(--accent); }
+  .comp-dot.feedstock{ background: #e6a817; }
+  .comp-dot.ppa      { background: var(--ftp); }
+  .comp-dot.ccs      { background: var(--accent-mid); }
+  .comp-dot.wire     { background: var(--gold); }
+  .comp-label { color: var(--ink-mid); flex: 1; }
+  .comp-note  { color: var(--muted); font-size: 0.72rem; }
 
-    .cs-callout p {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: #1d3d30;
-      margin: 0;
-    }
+  /* Structure entities */
+  .entity-list { display: flex; flex-direction: column; gap: 0.4rem; }
+  .entity-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--rule-light);
+    font-size: 0.8rem;
+  }
+  .entity-row:last-child { border-bottom: none; }
+  .entity-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    padding: 0.15rem 0.45rem;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .tag-ftp     { background: rgba(14,45,82,0.10); color: var(--ftp); }
+  .tag-gold    { background: var(--gold-light); color: #7a5a20; }
+  .tag-green   { background: var(--accent-light); color: var(--accent); }
+  .entity-desc { color: var(--ink-mid); line-height: 1.45; }
 
-    .cs-body { font-size: 0.96rem; line-height: 1.82; color: #2e2e2e; }
-    .cs-body p { margin-bottom: 1.2rem; }
-    .cs-body p:last-child { margin-bottom: 0; }
+  /* ── FOOTER ── */
+  .page-footer {
+    background: var(--ftp-deeper);
+    padding: 2.25rem 3rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .footer-brand {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .footer-brand span { color: var(--gold); }
+  .footer-date {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.3rem;
+  }
+  .footer-note {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.6;
+    max-width: 520px;
+    text-align: right;
+  }
 
-    .cs-h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--ink);
-      margin: 2.25rem 0 0.75rem;
-    }
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content > * { animation: fadeUp 0.6s ease both; }
+  .hero-tags    { animation-delay: 0.05s; }
+  .hero h1      { animation-delay: 0.15s; }
+  .hero-deck    { animation-delay: 0.25s; }
+  .hero-authors { animation-delay: 0.35s; }
 
-    .cs-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1.5rem 0;
-    }
-
-    .cs-pill {
-      background: #fff;
-      border: 1px solid var(--rule);
-      border-radius: 20px;
-      padding: 0.3rem 0.85rem;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .cs-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-
-    .cs-card {
-      background: var(--warm);
-      border: 0.5px solid var(--rule);
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
-    }
-
-    .cs-card-title {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 0.4rem;
-    }
-
-    .cs-card-body { font-size: 0.87rem; line-height: 1.6; color: var(--muted); }
-
-    .cs-footer-note {
-      font-size: 0.8rem;
-      color: var(--muted);
-      border-top: 1px solid var(--rule);
-      padding-top: 1rem;
-      margin-top: 2.5rem;
-      font-style: italic;
-      line-height: 1.6;
-    }
-
-    .cs-author-ref {
-      margin-top: 1.5rem;
-      padding: 0.85rem 1.25rem;
-      border: 0.5px solid var(--rule);
-      border-radius: 8px;
-      background: #fff;
-      font-size: 0.82rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .cs-author-ref strong { color: var(--ink); font-weight: 500; }
-
-    @media (max-width: 600px) {
-      .cs-grid { grid-template-columns: 1fr; }
-      .cs-title { font-size: 1.5rem; }
-      .cs-meta { gap: 1rem; }
-    }
-  </style>
+  @media (max-width: 860px) {
+    .two-col { grid-template-columns: 1fr; }
+    .stat-bar { grid-template-columns: repeat(3, 1fr); }
+    .deliverables-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 1.5rem; }
+    .hero-content { padding: 2rem 1.5rem 2.5rem; }
+    .page-footer { flex-direction: column; }
+    .footer-note { text-align: left; }
+  }
+</style>
 </head>
 <body>
 
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <span class="logo-mark">FTP</span>
-        <span class="logo-text">First Tactical Projects</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html" class="active">News &amp; Case Studies</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">First Tactical Projects</div>
+  <a href="projects.html#case-studies" class="nav-home-link">&larr; Case Studies</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tags">
+      <span class="hero-tag primary">Case Study</span>
+      <span class="hero-tag scotland">Scotland</span>
+      <span class="hero-tag">Energy Recovery</span>
+      <span class="hero-tag">Waste to Energy</span>
+      <span class="hero-tag">Scottish Freeport</span>
+      <span class="hero-tag">Private Wire</span>
     </div>
-    <div class="nav-mobile" id="navMobile">
-      <a href="index.html">Home</a>
-      <a href="projects.html">News &amp; Case Studies</a>
-      <a href="team.html">Team</a>
-      <a href="contact.html">Contact</a>
+    <h1>Port Nigg Energy Recovery Facility: <em>originating a 25MW private-wire EfW project in an industrial freeport</em></h1>
+    <p class="hero-deck">A project development paper documenting the commercial structuring, technical design, regulatory positioning, and stakeholder engagement undertaken by the FTP development team in connection with a proposed ERF at the Port of Nigg, Cromarty Firth.</p>
+    <div class="hero-authors">
+      <div class="author-avatar">AG</div>
+      <div class="author-avatar" style="margin-left:-10px;">AW</div>
+      <div class="hero-author-text">
+        <strong>Arjit Gupta &amp; Allan Whitelaw</strong> — Directors, First Tactical Projects Ltd<br>
+        With contributions from the FTP development team
+      </div>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <!-- ARTICLE CONTENT -->
-  <main style="padding-top: var(--nav-h); background: #fff;">
-    <div class="cs-wrap">
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="stat-item">
+    <span class="stat-label">Location</span>
+    <span class="stat-value" style="font-size:0.9rem; font-family:'DM Sans',sans-serif; font-weight:600;">Port Nigg</span>
+    <span class="stat-sub">Cromarty Firth, Scotland</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-label">Project Scale</span>
+    <span class="stat-value">25 MW</span>
+    <span class="stat-sub">CHP electrical output</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-label">Est. CAPEX</span>
+    <span class="stat-value" style="font-size:0.9rem; font-family:'DM Sans',sans-serif; font-weight:600;">£250–300M</span>
+    <span class="stat-sub">Indicative, pre-FEED</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-label">Structure</span>
+    <span class="stat-value" style="font-size:0.75rem; font-family:'DM Sans',sans-serif; font-weight:600;">DBF(O)T</span>
+    <span class="stat-sub">Developer-led, no public risk</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-label">Stage Reached</span>
+    <span class="stat-value" style="font-size:0.85rem; font-family:'DM Sans',sans-serif; font-weight:600;">Pre-FEED</span>
+    <span class="stat-sub">Advanced commercial structuring</span>
+  </div>
+</div>
 
-      <a href="projects.html#case-studies" class="cs-back">&larr; Back to case studies</a>
+<!-- MAIN CONTENT -->
+<div class="page">
+  <div class="two-col">
 
-      <div class="cs-masthead">
-        <div>
-          <div class="cs-wordmark">First Tactical Projects Ltd</div>
-          <div class="cs-wordmark-sub">Project development paper</div>
+    <!-- LEFT: BODY -->
+    <main>
+
+      <!-- 01 -->
+      <div class="section-block">
+        <span class="section-label">01 — Strategic Context</span>
+        <h2 class="section-title">A critical power constraint as both a development problem and a project opportunity</h2>
+        <div class="prose">
+          <p>Port Nigg occupies a strategically significant position within the Inverness and Cromarty Firth Green Freeport — one of the first two Scottish freeports designated under the UK Government's freeport programme. As a candidate hub for FLOW offshore wind component manufacturing and energy-intensive industrial activity, its underlying power constraint is acute: existing grid capacity of approximately 8–10MW is insufficient to support large-scale tenant demand, and SSEN reinforcement to a confirmed 30MW connection is not expected until later this decade at the earliest.</p>
+          <p>FTP identified this constraint as both a development problem and a project opportunity. A dispatchable, privately-financed Energy Recovery Facility — delivering power via private wire before grid reinforcement arrives — offered a credible solution that required no public subsidy and carried zero capital risk to the site owner.</p>
         </div>
-        <div class="cs-doc-type">Published Apr 2026</div>
-      </div>
-
-      <p class="cs-kicker">Energy recovery &middot; Waste to energy &middot; Scottish Freeport</p>
-      <h1 class="cs-title">Port Nigg Energy Recovery Facility: originating a 25MW private-wire EfW project in an industrial freeport</h1>
-      <p class="cs-deck">A project development paper documenting the commercial structuring, technical design, regulatory positioning, and stakeholder engagement undertaken by the FTP development team in connection with a proposed ERF at the Port of Nigg, Cromarty Firth.</p>
-
-      <div class="cs-author-block">
-        <div class="cs-author-name">Arjit Gupta &nbsp;&amp;&nbsp; Allan Whitelaw</div>
-        <div class="cs-author-roles">
-          Arjit Gupta — Director, First Tactical Projects Ltd &nbsp;&middot;&nbsp; Principal, Elementa Advisory Ltd<br>
-          Allan Whitelaw — Director, First Tactical Projects Ltd<br>
-          With contributions from the FTP development team
-        </div>
-      </div>
-
-      <hr class="cs-rule">
-
-      <div class="cs-meta">
-        <div class="cs-meta-item">
-          <span class="cs-meta-label">Location</span>
-          <span class="cs-meta-value">Port Nigg, Cromarty Firth, Scotland</span>
-        </div>
-        <div class="cs-meta-item">
-          <span class="cs-meta-label">Project scale</span>
-          <span class="cs-meta-value">25MW / est. £250–300M CAPEX</span>
-        </div>
-        <div class="cs-meta-item">
-          <span class="cs-meta-label">Sector</span>
-          <span class="cs-meta-value">Energy Recovery / Waste-to-Energy</span>
-        </div>
-        <div class="cs-meta-item">
-          <span class="cs-meta-label">Freeport zone</span>
-          <span class="cs-meta-value">Inverness &amp; Cromarty Firth Green Freeport</span>
-        </div>
-        <div class="cs-meta-item">
-          <span class="cs-meta-label">Stage reached</span>
-          <span class="cs-meta-value">Advanced pre-FEED commercial structuring</span>
+        <div class="callout">
+          <p>The strategic case was clear: the port needs cost-competitive, non-intermittent power by 2030. An ERF operating on a Design-Build-Finance-Transfer model could deliver 25MW of baseload capacity on commercial terms, with all development and financing risk sitting with the developer, not the site.</p>
         </div>
       </div>
 
-      <hr class="cs-rule">
-
-      <div class="cs-body">
-
-        <h2 class="cs-h2">Context and strategic rationale</h2>
-        <p>Port Nigg occupies a strategically significant position within the Inverness and Cromarty Firth Green Freeport — one of the first two Scottish freeports designated under the UK Government's freeport programme. As a candidate hub for FLOW offshore wind component manufacturing and energy-intensive industrial activity, its underlying power constraint is acute: existing grid capacity of approximately 8–10MW is insufficient to support large-scale tenant demand, and SSEN reinforcement to a confirmed 30MW connection is not expected until later part of this decade at the earliest.</p>
-        <p>FTP identified this constraint as both a development problem and a project opportunity. A dispatchable, privately-financed Energy Recovery Facility — delivering power via private wire before grid reinforcement arrives — offered a credible solution that required no public subsidy and carried zero capital risk to the site owner.</p>
-
-        <div class="cs-callout">
-          <p>The strategic case was simple: the port needs cost-competitive, non-intermittent power by 2030. An ERF operating on a Design-Build-Finance-Transfer model could deliver 25MW of baseload capacity on commercial terms, structured so that all development and financing risk sits with the developer, not the site.</p>
+      <!-- 02 -->
+      <div class="section-block">
+        <span class="section-label">02 — Technology Selection</span>
+        <h2 class="section-title">A structured technology evaluation across six criteria yielded a clear preferred solution</h2>
+        <div class="prose">
+          <p>FTP conducted a structured evaluation of energy technologies capable of meeting the port's needs: onshore wind, solar PV, SMR nuclear, diesel generation, hydrogen, and moving-grate ERF with combined heat and power. The evaluation tested each against six criteria — dispatchability, technology readiness, delivery timeline, financing tractability, planning risk, and private-wire compatibility.</p>
+          <p>ERF was selected as the preferred technology on the basis of firm, programmable output (unlike wind and solar), a proven UK and European deployment track record, a delivery timeline of 4–6 years from financial close, strong bankability under project finance structures, and a feedstock economic model that generates dual revenue — gate fees from waste acceptance and electricity revenue from the PPA — materially improving debt service coverage.</p>
         </div>
-
-        <h2 class="cs-h2">Technology selection</h2>
-        <p>FTP conducted a structured evaluation of energy technologies capable of meeting the port's needs: onshore wind, solar PV, SMR nuclear, diesel generation, hydrogen, and moving-grate ERF with combined heat and power. The evaluation tested each against six criteria — dispatchability, technology readiness, delivery timeline, financing tractability, planning risk, and private-wire compatibility.</p>
-        <p>ERF was selected as the preferred technology on the basis of firm, programmable output (unlike wind and solar), proven UK and European deployment track record, a delivery timeline of 4–6 years from financial close, strong bankability under project finance structures, and a feedstock economic model that generates dual revenue — gate fees from waste acceptance and electricity revenue from the PPA — materially improving debt service coverage.</p>
-
-        <h2 class="cs-h2">Commercial structure</h2>
-        <p>The project was structured as a Design-Build-Finance-(Operate)-Transfer arrangement. FTP bears all development, permitting, EPC, and financing risk. A 20-year take-or-pay Power Purchase Agreement at terms competitive to the retail power price forms the contractual spine of the financing model, targeting senior debt at approximately 70% gearing. Gate fees from waste intake — modelled at a blended average of approximately £108/tonne across 300–350ktpa — provide the second major revenue stream and function as a significant natural hedge to power price volatility.</p>
-        <p>The Freeport private-wire model provides material cost advantages: exemption from transmission and distribution use-of-system charges (TNUoS and DUoS), exemption from balancing services charges (BSUoS), and Ofgem licensing simplification. These translate directly into a lower delivered cost per unit compared with grid-imported alternatives at the current connection cost trajectory.</p>
-
-        <h2 class="cs-h2">Feedstock strategy</h2>
-        <p>A three-stream feedstock model was developed targeting an aggregate of 300–350ktpa. Primary supply was identified from Highland Council municipal solid waste residual streams, with secondary supply from commercial and industrial waste via the Longman transfer station and equivalent facilities across the H&amp;I region. Grade B and C waste wood from construction activity and forestry processing in the Highlands formed a third stream, aligned with Scottish Government residual waste policy and the requirement for R1 energy recovery classification under the Industrial Emissions Directive.</p>
-
-        <h2 class="cs-h2">Regulatory and permitting pathway</h2>
-        <p>The permitting architecture was mapped across four concurrent tracks: SEPA integrated environmental permit under the IED, Highland Council planning permission (with EIA scope), Marine Scotland marine licence for barge operations, and Ofgem private-wire notification. A Carbon Capture and Storage integration route was identified as a future value-accretive pathway aligned with the North Sea Transition Authority's interest in CCS-ready industrial installations in the Cromarty Firth corridor. Exploratory meetings with The Highlands Council confirmed the joint appetite to support such a project.</p>
-
-        <div class="cs-pills">
-          <span class="cs-pill">Technology evaluation</span>
-          <span class="cs-pill">PPA structuring</span>
-          <span class="cs-pill">Project finance modelling</span>
-          <span class="cs-pill">Feedstock strategy</span>
-          <span class="cs-pill">Regulatory pathway</span>
-          <span class="cs-pill">Stakeholder engagement</span>
-          <span class="cs-pill">PESTLE risk register</span>
-          <span class="cs-pill">EPC programme design</span>
-          <span class="cs-pill">CCS integration</span>
+        <div class="callout callout-gold">
+          <p>The dual-revenue model — gate fees from waste intake plus electricity revenue from the PPA — functions as a natural hedge. Gate fee income is largely independent of power price volatility, improving debt service coverage ratios and reducing the PPA pricing required to achieve bankable returns.</p>
         </div>
+      </div>
 
-        <h2 class="cs-h2">Deliverables</h2>
-        <div class="cs-grid">
-          <div class="cs-card">
-            <div class="cs-card-title">Commercial proposition</div>
-            <div class="cs-card-body">Full PPA framework, open-book economic model, and revenue stack across gate fees, electricity, heat, and recovered materials — quantified and bankability-tested.</div>
+      <!-- 03 -->
+      <div class="section-block">
+        <span class="section-label">03 — Commercial Structure</span>
+        <h2 class="section-title">A DBF(O)T model transferring all development and financing risk to the developer</h2>
+        <div class="prose">
+          <p>The project was structured as a Design-Build-Finance-(Operate)-Transfer arrangement. FTP bears all development, permitting, EPC, and financing risk. A 20-year take-or-pay Power Purchase Agreement at terms competitive to the retail power price forms the contractual spine of the financing model, targeting senior debt at approximately 70% gearing.</p>
+          <p>Gate fees from waste intake — modelled at a blended average of approximately £108/tonne across 300–350ktpa — provide the second major revenue stream. The Freeport private-wire model provides material cost advantages: exemption from TNUoS and DUoS charges, exemption from BSUoS balancing charges, and Ofgem licensing simplification. These translate directly into a lower delivered cost per unit compared with grid-imported alternatives.</p>
+        </div>
+        <div class="callout callout-slate">
+          <p>The private-wire Freeport model removes the three largest cost components of conventional grid supply — TNUoS, DUoS, and BSUoS — allowing the ERF to deliver power to port tenants at materially below-market rates while still achieving bankable project returns.</p>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="section-block">
+        <span class="section-label">04 — Feedstock Strategy</span>
+        <h2 class="section-title">A three-stream feedstock model targeting 300–350ktpa across Highland &amp; Islands sources</h2>
+        <div class="prose">
+          <p>A three-stream feedstock model was developed targeting an aggregate of 300–350ktpa. Primary supply was identified from Highland Council municipal solid waste residual streams, with secondary supply from commercial and industrial waste via the Longman transfer station and equivalent facilities across the H&amp;I region.</p>
+          <p>Grade B and C waste wood from construction activity and forestry processing in the Highlands formed a third stream, aligned with Scottish Government residual waste policy and the requirement for R1 energy recovery classification under the Industrial Emissions Directive. Barge logistics from southern Highland Council collection points were modelled as the primary transport route, leveraging Port Nigg's existing quayside infrastructure.</p>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="section-block">
+        <span class="section-label">05 — Regulatory &amp; Permitting Pathway</span>
+        <h2 class="section-title">Four concurrent consenting tracks with a CCS integration route identified</h2>
+        <div class="prose">
+          <p>The permitting architecture was mapped across four concurrent tracks: SEPA integrated environmental permit under the IED, Highland Council planning permission (with EIA scope), Marine Scotland marine licence for barge operations, and Ofgem private-wire notification.</p>
+          <p>A Carbon Capture and Storage integration route was identified as a future value-accretive pathway, aligned with the North Sea Transition Authority's interest in CCS-ready industrial installations in the Cromarty Firth corridor. Exploratory engagement with The Highland Council confirmed constructive appetite to support the project at an early-stage pre-planning level.</p>
+        </div>
+        <div class="pills">
+          <span class="pill">Technology evaluation</span>
+          <span class="pill">PPA structuring</span>
+          <span class="pill">Project finance modelling</span>
+          <span class="pill">Feedstock strategy</span>
+          <span class="pill">Regulatory pathway</span>
+          <span class="pill">Stakeholder engagement</span>
+          <span class="pill">PESTLE risk register</span>
+          <span class="pill">EPC programme design</span>
+          <span class="pill">CCS integration</span>
+        </div>
+      </div>
+
+      <!-- 06 -->
+      <div class="section-block">
+        <span class="section-label">06 — Deliverables</span>
+        <h2 class="section-title">What the FTP development team produced</h2>
+        <div class="deliverables-grid">
+          <div class="del-card">
+            <div class="del-card-label">Commercial proposition</div>
+            <div class="del-card-body">Full PPA framework, open-book economic model, and revenue stack across gate fees, electricity, heat, and recovered materials — quantified and bankability-tested.</div>
           </div>
-          <div class="cs-card">
-            <div class="cs-card-title">Technical package</div>
-            <div class="cs-card-body">Moving-grate CHP plant design basis, feedstock blend and logistics architecture, IED compliance and R1 classification strategy, and CCS integration pathway.</div>
+          <div class="del-card">
+            <div class="del-card-label">Technical package</div>
+            <div class="del-card-body">Moving-grate CHP plant design basis, feedstock blend and logistics architecture, IED compliance and R1 classification strategy, and CCS integration pathway.</div>
           </div>
-          <div class="cs-card">
-            <div class="cs-card-title">Regulatory map</div>
-            <div class="cs-card-body">Complete permitting pathway with SEPA, Highland Council, Marine Scotland, and Ofgem — with critical path analysis and indicative programme.</div>
+          <div class="del-card">
+            <div class="del-card-label">Regulatory map</div>
+            <div class="del-card-body">Complete permitting pathway across SEPA, Highland Council, Marine Scotland, and Ofgem — with critical path analysis and indicative programme.</div>
           </div>
-          <div class="cs-card">
-            <div class="cs-card-title">Stakeholder engagement</div>
-            <div class="cs-card-body">Pre-engagement with Highland Council, RFI responses to the site operator, and proposed joint working group and MoU architecture.</div>
+          <div class="del-card">
+            <div class="del-card-label">Stakeholder engagement</div>
+            <div class="del-card-body">Pre-engagement with Highland Council, RFI responses to the site operator, and proposed joint working group and MoU architecture.</div>
           </div>
         </div>
+      </div>
 
-        <h2 class="cs-h2">Outcome and reflection</h2>
-        <p>The project did not proceed to the next development stage. The site owner confirmed that decommissioning of the Nigg Oil Terminal — the intended ERF location — had overrun its contractual completion date, making near-term site exclusivity unavailable. Alongside this, uncertainty about the tenant demand mix at the port during the critical 2026–2029 window made the 25MW take-or-pay structure difficult for the counterparty to commit to. These were exogenous timing factors, not failures of the development proposition itself.</p>
-
-        <div class="cs-callout">
+      <!-- 07 -->
+      <div class="section-block">
+        <span class="section-label">07 — Outcome &amp; Reflection</span>
+        <h2 class="section-title">Exogenous timing factors, not proposition failure</h2>
+        <div class="prose">
+          <p>The project did not proceed to the next development stage. The site owner confirmed that decommissioning of the Nigg Oil Terminal — the intended ERF location — had overrun its contractual completion date, making near-term site exclusivity unavailable. Alongside this, uncertainty about the tenant demand mix at the port during the critical 2026–2029 window made the 25MW take-or-pay structure difficult for the counterparty to commit to. These were exogenous timing factors, not failures of the development proposition itself.</p>
+        </div>
+        <div class="outcome-banner">
+          <div class="outcome-banner-label">Institutional capability built</div>
           <p>In infrastructure origination, the discipline of building a bankable proposition — stress-testing technology assumptions, financing structures, and regulatory pathways against real counterparty engagement — creates durable institutional knowledge. The Port Nigg programme established FTP's capability across the full development lifecycle of an ERF project, from concept to commercial-ready proposition, in a live market environment.</p>
         </div>
-
-        <p>The work also produced several transferable insights: the critical role of site exclusivity timing in private-wire ERF financing; the structural mismatch between long-term take-or-pay tenors and the planning horizons of industrial port operators managing evolving tenant mixes; and the material financing advantage of dual-revenue-stream projects in improving debt service coverage and reducing PPA pricing pressure.</p>
-
-      </div>
-
-      <p class="cs-footer-note">Commercially sensitive counterparty information has been omitted. Financial figures are indicative and based on pre-FEED modelling. This paper is published by First Tactical Projects Ltd with permission of the FTP board.</p>
-
-      <div class="cs-author-ref">
-        <strong>About the authors</strong> — Arjit Gupta is a director at First Tactical Projects Ltd, focused on originating and structuring complex infrastructure projects across the energy and digital sectors. He is also the principal of Elementa Advisory, a boutique practice that works with founders and growth-stage businesses on fundraising strategy and investor access. Allan Whitelaw is a Development Director at FTP with 35 years of experience in energy generation and A&amp;D advisory.
-      </div>
-
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="logo-mark">FTP</span>
-          <p>First Tactical Projects Limited<br>
-          41 Charlotte Square, Edinburgh EH2 4HQ<br>
-          Company No. SC671787</p>
-        </div>
-        <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="projects.html">News &amp; Case Studies</a>
-          <a href="team.html">Team</a>
-          <a href="contact.html">Contact</a>
+        <div class="insights">
+          <div style="margin-top:1.25rem; margin-bottom:0.3rem;">
+            <span style="font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted);">Transferable insights</span>
+          </div>
+          <div class="insight-item">
+            <div class="insight-num">01</div>
+            <div class="insight-text">Site exclusivity timing is the critical gating factor in private-wire ERF financing — the development programme must be anchored to a confirmed site access timeline before commercial structuring can proceed to bankable terms.</div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-num">02</div>
+            <div class="insight-text">Long-term take-or-pay tenors are structurally mismatched with the planning horizons of industrial port operators managing evolving tenant mixes — flexibility provisions and phased capacity commitments improve counterparty willingness to engage.</div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-num">03</div>
+            <div class="insight-text">Dual-revenue-stream projects — combining gate fees with electricity offtake — materially improve debt service coverage ratios and reduce the required PPA price, creating a structurally more financeable proposition than single-revenue ERF models.</div>
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 First Tactical Projects Limited. All rights reserved. Registered in Scotland.</p>
-        <p class="footer-disclaimer">This website is for informational purposes only and does not constitute an offer to invest or a solicitation of investment.</p>
-      </div>
-    </div>
-  </footer>
 
-  <script src="app.js"></script>
+    </main>
+
+    <!-- RIGHT: SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- Project facts -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-head">
+          <div class="sidebar-card-head-dot"></div>
+          <div class="sidebar-card-head-title">Project Facts</div>
+        </div>
+        <div class="sidebar-card-body">
+          <div class="kv-row">
+            <span class="kv-key">Location</span>
+            <span class="kv-val accent">Port Nigg, Cromarty Firth</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Freeport zone</span>
+            <span class="kv-val">Inverness &amp; Cromarty Firth</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Site footprint</span>
+            <span class="kv-val">~15 acres, Zone 1</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Programme</span>
+            <span class="kv-val">2024–2025</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Lead developer</span>
+            <span class="kv-val accent">First Tactical Projects</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Public counterparty</span>
+            <span class="kv-val">Highland Council / Port Authority</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Stage reached</span>
+            <span class="kv-val gold">Advanced pre-FEED</span>
+          </div>
+          <div style="margin-top:0.85rem; padding-top:0.85rem; border-top:1px solid var(--rule-light);">
+            <div style="font-size:0.75rem; color:var(--muted); margin-bottom:0.3rem;">Development team</div>
+            <div style="font-size:0.82rem; font-weight:500; color:var(--ink);">Arjit Gupta &amp; Allan Whitelaw</div>
+            <div style="font-size:0.75rem; color:var(--muted);">Directors, First Tactical Projects Ltd</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plant components -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-head">
+          <div class="sidebar-card-head-dot"></div>
+          <div class="sidebar-card-head-title">Plant Components</div>
+        </div>
+        <div class="sidebar-card-body">
+          <div class="comp-list">
+            <div class="comp-row">
+              <div class="comp-dot erf"></div>
+              <span class="comp-label">Moving-grate ERF</span>
+              <span class="comp-note">Core technology</span>
+            </div>
+            <div class="comp-row">
+              <div class="comp-dot chp"></div>
+              <span class="comp-label">CHP steam turbine</span>
+              <span class="comp-note">25 MW electrical</span>
+            </div>
+            <div class="comp-row">
+              <div class="comp-dot feedstock"></div>
+              <span class="comp-label">Feedstock reception</span>
+              <span class="comp-note">300–350ktpa</span>
+            </div>
+            <div class="comp-row">
+              <div class="comp-dot wire"></div>
+              <span class="comp-label">Private wire network</span>
+              <span class="comp-note">Freeport tenants</span>
+            </div>
+            <div class="comp-row">
+              <div class="comp-dot ppa"></div>
+              <span class="comp-label">Thermal offtake</span>
+              <span class="comp-note">Up to 40 MWth</span>
+            </div>
+            <div class="comp-row">
+              <div class="comp-dot ccs"></div>
+              <span class="comp-label">CCS integration route</span>
+              <span class="comp-note">Future phase</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Delivery structure -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-head">
+          <div class="sidebar-card-head-dot"></div>
+          <div class="sidebar-card-head-title">Delivery Structure</div>
+        </div>
+        <div class="sidebar-card-body">
+          <div class="entity-list">
+            <div class="entity-row">
+              <span class="entity-tag tag-ftp">DBF(O)T</span>
+              <span class="entity-desc">FTP develops, builds, finances, operates, transfers</span>
+            </div>
+            <div class="entity-row">
+              <span class="entity-tag tag-gold">PPA</span>
+              <span class="entity-desc">20-year take-or-pay with port authority / tenants</span>
+            </div>
+            <div class="entity-row">
+              <span class="entity-tag tag-green">EPC</span>
+              <span class="entity-desc">Fixed-price contract with investment-grade contractor</span>
+            </div>
+            <div class="entity-row">
+              <span class="entity-tag tag-ftp">SPV</span>
+              <span class="entity-desc">Scottish-registered project company; ring-fenced</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key benefits -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-head">
+          <div class="sidebar-card-head-dot"></div>
+          <div class="sidebar-card-head-title">Proposition Benefits</div>
+        </div>
+        <div class="sidebar-card-body">
+          <div class="kv-row">
+            <span class="kv-key">For port</span>
+            <span class="kv-val" style="font-size:0.75rem;">Reliable power ahead of SSEN grid upgrade; zero capital risk</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">For tenants</span>
+            <span class="kv-val" style="font-size:0.75rem;">Below-market, non-intermittent power via private wire</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Capital risk</span>
+            <span class="kv-val" style="font-size:0.75rem;">100% borne by FTP; no public subsidy required</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Revenue model</span>
+            <span class="kv-val" style="font-size:0.75rem;">Gate fees + PPA + thermal offtake</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Grid benefit</span>
+            <span class="kv-val" style="font-size:0.75rem;">TNUoS / DUoS / BSUoS exempt via Freeport private wire</span>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <div>
+    <div class="footer-brand">First Tactical Projects</div>
+    <div class="footer-date" style="margin-top:0.4rem;">Case Study · Published Apr 2026</div>
+  </div>
+  <p class="footer-note">Commercially sensitive counterparty information has been omitted. Financial figures are indicative and based on pre-FEED modelling. This paper is published by First Tactical Projects Ltd with permission of the FTP board.</p>
+</footer>
+
 </body>
 </html>

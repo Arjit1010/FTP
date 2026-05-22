@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aberthaw Sustainable Energy Network — Energy Optimisation Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1a16;
+    --ink-mid: #2e3d36;
+    --muted: #637068;
+    --rule: #d6cfc2;
+    --rule-light: #eae5dc;
+    --accent: #1d4e3f;
+    --accent-mid: #2a6b55;
+    --accent-light: #e6efe9;
+    --accent-pale: #f2f6f3;
+    --eos: #0b7b6b;
+    --eos-dark: #085f52;
+    --eos-deeper: #064840;
+    --warm: #f8f5ef;
+    --warm-dark: #f0ebe0;
+    --white: #ffffff;
+    --gold: #b8975a;
+    --gold-light: #f5edd8;
+    --slate: #1e3a5f;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(8, 95, 82, 0.97);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    height: 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-brand {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .nav-brand span { color: var(--gold); }
+  .nav-meta {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    margin-top: 60px;
+    position: relative;
+    background: var(--eos-deeper);
+    min-height: 530px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 90% 60% at 65% 35%, rgba(11,123,107,0.45) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 70% at 5% 85%, rgba(184,151,90,0.10) 0%, transparent 55%),
+      linear-gradient(155deg, #064840 0%, #053830 50%, #032820 100%);
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  /* Wales red accent bar */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #c0392b 0%, var(--gold) 50%, var(--eos) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 3rem 3.5rem;
+    max-width: 820px;
+  }
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.67rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 3px;
+    padding: 0.22rem 0.65rem;
+  }
+  .hero-tag.primary {
+    color: var(--gold);
+    border-color: rgba(184,151,90,0.4);
+    background: rgba(184,151,90,0.08);
+  }
+  .hero-tag.wales {
+    color: #e88080;
+    border-color: rgba(192,57,43,0.35);
+    background: rgba(192,57,43,0.08);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.12;
+    color: #fff;
+    margin-bottom: 1.25rem;
+    max-width: 720px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: rgba(255,255,255,0.72);
+  }
+  .hero-deck {
+    font-size: 1rem;
+    line-height: 1.72;
+    color: rgba(255,255,255,0.58);
+    max-width: 610px;
+    margin-bottom: 2rem;
+  }
+  .hero-authors {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.10);
+    padding-top: 1.25rem;
+  }
+  .author-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--eos), var(--slate));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .hero-author-text {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.52);
+    line-height: 1.5;
+  }
+  .hero-author-text strong { color: rgba(255,255,255,0.82); font-weight: 500; }
+
+  /* ── STAT BAR ── */
+  .stat-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: sticky;
+    top: 60px;
+    z-index: 50;
+  }
+  .stat-item {
+    padding: 1.1rem 1.5rem;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--eos-dark);
+    line-height: 1.15;
+  }
+  .stat-sub {
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+
+  /* ── LAYOUT ── */
+  .page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3.5rem;
+    padding: 3.5rem 0 4rem;
+    align-items: start;
+  }
+
+  /* ── BODY CONTENT ── */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--eos);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+  .prose {
+    font-size: 0.955rem;
+    line-height: 1.82;
+    color: var(--ink-mid);
+  }
+  .prose p { margin-bottom: 1.1rem; }
+  .prose p:last-child { margin-bottom: 0; }
+  .section-block {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--rule-light);
+  }
+  .section-block:first-child { border-top: none; padding-top: 0; }
+
+  /* ── CALLOUT ── */
+  .callout {
+    background: var(--accent-light);
+    border-left: 3px solid var(--eos);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+  }
+  .callout p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: #1d3d30;
+    margin: 0;
+  }
+  .callout-gold {
+    background: var(--gold-light);
+    border-left-color: var(--gold);
+  }
+  .callout-gold p { color: #5a3d10; }
+  .callout-slate {
+    background: #eef2f7;
+    border-left-color: var(--slate);
+  }
+  .callout-slate p { color: #1e3a5f; }
+
+  /* ── SIDEBAR ── */
+  .sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+  .sidebar-card {
+    background: var(--white);
+    border: 0.5px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .sidebar-card-head {
+    background: var(--eos-dark);
+    padding: 0.7rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .sidebar-card-head-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+  .sidebar-card-head-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+  .sidebar-card-body { padding: 1.1rem 1.2rem; }
+
+  .kv-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--rule-light);
+    gap: 1rem;
+  }
+  .kv-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .kv-key { font-size: 0.75rem; color: var(--muted); flex-shrink: 0; }
+  .kv-val {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: right;
+    line-height: 1.4;
+  }
+  .kv-val.eos { color: var(--eos); }
+  .kv-val.gold { color: var(--gold); }
+
+  /* Component list */
+  .comp-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .comp-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.8rem;
+  }
+  .comp-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .comp-dot.solar    { background: #e6a817; }
+  .comp-dot.wind     { background: var(--eos); }
+  .comp-dot.storage  { background: var(--slate); }
+  .comp-dot.grid     { background: #c0392b; }
+  .comp-dot.hydrogen { background: var(--accent-mid); }
+  .comp-dot.micro    { background: var(--gold); }
+  .comp-label { color: var(--ink-mid); flex: 1; }
+  .comp-note  { color: var(--muted); font-size: 0.72rem; }
+
+  /* Structure entities */
+  .entity-list { display: flex; flex-direction: column; gap: 0.4rem; }
+  .entity-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--rule-light);
+    font-size: 0.8rem;
+  }
+  .entity-row:last-child { border-bottom: none; }
+  .entity-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    padding: 0.15rem 0.45rem;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .tag-eos     { background: rgba(11,123,107,0.12); color: var(--eos-dark); }
+  .tag-partner { background: rgba(30,58,95,0.10); color: var(--slate); }
+  .tag-public  { background: var(--gold-light); color: #7a5a20; }
+  .entity-desc { color: var(--ink-mid); line-height: 1.45; }
+
+  /* Deliverables */
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    margin-top: 1rem;
+  }
+  .del-card {
+    background: var(--white);
+    border: 0.5px solid var(--rule);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+  }
+  .del-card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--eos);
+    margin-bottom: 0.35rem;
+  }
+  .del-card-body {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  /* Capability pills */
+  .pills { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1rem; }
+  .pill {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 20px;
+    padding: 0.28rem 0.8rem;
+    font-size: 0.75rem;
+    color: var(--ink-mid);
+  }
+
+  /* Outcome banner */
+  .outcome-banner {
+    background: var(--eos-deeper);
+    border-radius: 12px;
+    padding: 2rem 2.25rem;
+    margin-top: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .outcome-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(11,123,107,0.45) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+  }
+  .outcome-banner-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.65rem;
+  }
+  .outcome-banner p {
+    font-size: 0.92rem;
+    line-height: 1.72;
+    color: rgba(255,255,255,0.75);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Insights */
+  .insights { display: flex; flex-direction: column; gap: 1.1rem; margin-top: 1rem; }
+  .insight-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .insight-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--rule);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 2rem;
+    text-align: center;
+  }
+  .insight-text {
+    font-size: 0.84rem;
+    line-height: 1.65;
+    color: var(--ink-mid);
+    padding-top: 0.15rem;
+  }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    background: var(--eos-deeper);
+    padding: 2.25rem 3rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .footer-brand {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .footer-brand span { color: var(--gold); }
+  .footer-date {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.3rem;
+  }
+  .footer-note {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.6;
+    max-width: 520px;
+    text-align: right;
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content > * { animation: fadeUp 0.6s ease both; }
+  .hero-tags       { animation-delay: 0.05s; }
+  .hero h1         { animation-delay: 0.15s; }
+  .hero-deck       { animation-delay: 0.25s; }
+  .hero-authors    { animation-delay: 0.35s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">First Tactical Projects</span></div>
+  <div class="nav-meta">Case Study — Published Jan 2026</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div style="position:relative; z-index:10; padding: 0.75rem 3rem 0;">
+  <a href="projects.html#case-studies" 
+     style="font-size:0.82rem; font-weight:500; color:rgba(255,255,255,0.6); 
+            letter-spacing:0.03em; border-bottom:1px solid transparent;
+            transition:color 0.2s;">
+    &larr; Back to case studies
+  </a>
+</div>
+  <div class="hero-content">
+    <div class="hero-tags">
+      <span class="hero-tag primary">Case Study</span>
+      <span class="hero-tag wales">Wales</span>
+      <span class="hero-tag">Sustainable Energy</span>
+      <span class="hero-tag">Microgrid</span>
+      <span class="hero-tag">Regeneration</span>
+      <span class="hero-tag">Joint Development</span>
+    </div>
+    <h1>Aberthaw Sustainable Energy Network: <em>originating a site-wide zero carbon microgrid for a major Welsh regeneration zone</em></h1>
+    <p class="hero-deck">A project development case study documenting the commercial structuring, technical design, partnership architecture, and stakeholder engagement undertaken by the EOS-led development team — in collaboration with specialist project partners — for a proposed renewable energy network at the former Aberthaw power station site in South Wales.</p>
+    <div class="hero-authors">
+      <div class="author-avatar">EOS</div>
+      <div class="author-avatar" style="margin-left:-10px;">FTP</div>
+      <div class="hero-author-text">
+        <strong>EOS Development Team</strong> — Lead developer, energy infrastructure origination &amp; commercial structuring<br>
+        With specialist support from project development partners, including FTP in a supporting capacity
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="stat-item">
+    <span class="stat-label">Location</span>
+    <span class="stat-value" style="font-size:0.9rem; font-family:'DM Sans',sans-serif; font-weight:600;">Aberthaw</span>
+    <span class="stat-sub">South Wales, UK</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-label">Site Scale</span>
+    <span class="stat-value">~500 acres</span>
+    <span class="stat-sub">200 acres developable</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-label">Programme</span>
+    <span class="stat-value" style="font-size:0.9rem; font-family:'DM Sans',sans-serif; font-weight:600;">2021–2023</span>
+    <span class="stat-sub">Development period</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-label">Structure</span>
+    <span class="stat-value" style="font-size:0.75rem; font-family:'DM Sans',sans-serif; font-weight:600;">JDA / SPV</span>
+    <span class="stat-sub">Co-investment model</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-label">Stage Reached</span>
+    <span class="stat-value" style="font-size:0.85rem; font-family:'DM Sans',sans-serif; font-weight:600;">Pre-JDA</span>
+    <span class="stat-sub">Outline proposition complete</span>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="page">
+  <div class="two-col">
+
+    <!-- LEFT: BODY -->
+    <main>
+
+      <!-- 01. Context -->
+      <div class="section-block">
+        <span class="section-label">01 — Strategic Context</span>
+        <h2 class="section-title">Transforming a legacy power station into a zero carbon enterprise zone</h2>
+        <div class="prose">
+          <p>The former Aberthaw coal-fired power station occupies a strategically significant coastal position in the Vale of Glamorgan, South Wales. Following its decommissioning, the site — spanning approximately 500 acres with roughly 200 acres available for active development — was identified by Cardiff Capital Region (CCR) as a priority regeneration asset with potential to anchor Wales's emerging green industrial economy.</p>
+          <p>CCR's ambitions for the site centred on green energy production, innovation in emerging technologies, and the attraction of high-quality tenants in sectors such as advanced manufacturing, data infrastructure, and the hydrogen economy. To realise those ambitions, the site required a credible, privately-financed energy network capable of delivering zero carbon electricity at predictable cost — at scale and ahead of conventional grid reinforcement timelines.</p>
+          <p>EOS, working in partnership with Private Energy Partners (PEP) and their infrastructure funder Quinbrook Infrastructure Partners (QIP), was invited by CCR to develop an outline proposal for a site-wide sustainable energy network. Specialist project development support was also drawn in during the origination phase, including early-stage input from FTP, who had developed complementary experience across adjacent energy infrastructure programmes.</p>
+        </div>
+        <div class="callout">
+          <p>The development thesis was straightforward: Aberthaw's existing substation infrastructure, coastal access, and scale offered the raw ingredients for a flagship green energy campus. What was missing was a bankable, modular energy delivery proposition structured to attract private capital without relying on public subsidy — one that could generate early revenue while demand built progressively across the site.</p>
+        </div>
+      </div>
+
+      <!-- 02. Technology -->
+      <div class="section-block">
+        <span class="section-label">02 — Solution Architecture</span>
+        <h2 class="section-title">A modular, multi-technology energy network designed to scale with demand</h2>
+        <div class="prose">
+          <p>EOS proposed a site-wide integrated energy network combining renewable generation, battery energy storage, microgrid distribution infrastructure, and hydrogen electrolysis — all operated under a unified SCADA control platform. The architecture was explicitly modular: each technology layer could be commissioned progressively, with revenues from early operational phases helping to de-risk the next tranche of capital deployment.</p>
+          <p>The generation stack was designed to combine solar photovoltaic capacity, wind generation, and — over the medium term — tidal and offshore wind resources available through the site's maritime location. Battery energy storage provided the critical bridge between intermittent generation and firm supply commitments to tenants, allowing the network to offer bankable, predictable energy pricing rather than exposure to spot market volatility.</p>
+          <p>A hydrogen electrolyser was included in the masterplan, reflecting both the site's ambition to serve as an innovation testbed and the potential for green hydrogen to serve future tenants in sectors with hard-to-abate energy requirements. EV charging infrastructure rounded out the on-site solution, supporting both tenant logistics and public accessibility commitments.</p>
+        </div>
+        <div class="callout callout-gold">
+          <p>A deliberate 'early load' strategy was embedded in the commercial model: attracting a large-scale data centre operator as an anchor tenant would create immediate, stable electricity demand — allowing the network's revenue stack to be de-risked from day one, and strengthening the grid connection application queue position simultaneously.</p>
+        </div>
+      </div>
+
+      <!-- 03. Commercial Structure -->
+      <div class="section-block">
+        <span class="section-label">03 — Commercial Structure</span>
+        <h2 class="section-title">A three-entity SPV model structured for co-investment and long-term operation</h2>
+        <div class="prose">
+          <p>EOS proposed a Joint Development Agreement (JDA) with CCR — or CCR's designated special purpose vehicle — as the governance instrument through which the energy network programme would be jointly managed and financed. Equity ownership in each operating entity would be allocated proportional to each party's capital contribution, aligning incentives across the development lifecycle.</p>
+          <p>Three operating companies were proposed beneath the JDA structure. GridCo would develop and operate the site's distribution infrastructure, optimised for the renewable and flexible assets feeding into it. RenewCo would develop, build, and operate renewable generation assets both on and off the Aberthaw site. FlexCo would handle battery energy storage and other flexible capacity, both on-site and offsite, capturing ancillary revenue streams from grid services markets during periods of lower site demand.</p>
+          <p>The modular three-entity architecture was significant: it allowed each revenue stream to be separately financed and ring-fenced, providing lenders and co-investors with cleaner security packages, while also enabling CCR to retain meaningful ownership in whichever components most directly served its public interest obligations.</p>
+        </div>
+        <div class="callout callout-slate">
+          <p>EOS's existing approved supplier status on the Lexica Net Zero Carbon Delivery Framework provided a compliant commercial route for the public sector engagement, removing a procurement risk that would otherwise have complicated the JDA negotiation.</p>
+        </div>
+      </div>
+
+      <!-- 04. Stakeholder Landscape -->
+      <div class="section-block">
+        <span class="section-label">04 — Stakeholder Landscape</span>
+        <h2 class="section-title">A complex multi-party environment spanning public bodies, regulators, and private capital</h2>
+        <div class="prose">
+          <p>The Aberthaw programme sat at the intersection of several overlapping stakeholder environments. CCR, as both the site owner (through CCR Energy Ltd) and the prospective co-investor, was the primary counterparty — but decisions at CCR required alignment across ten constituent local authority shareholders, creating a governance cadence that differed materially from purely private sector development programmes.</p>
+          <p>Welsh Government represented a parallel stakeholder of significance, both as a policy setter for Wales's low-carbon industrial strategy and as a potential source of enabling support. The relationship was enhanced by PEP CEO David Williams's position as a Non-Executive Director to Welsh Government, providing direct institutional dialogue. Engagement with Cardiff University's Industrial Advisory Board — also a Williams connection — opened pathways to applied research collaboration that formed part of the site's longer-term innovation proposition.</p>
+          <p>On the grid side, National Grid Electricity Transmission (NGET) and NESO's queue management processes represented an independent critical path, with the site's 275kV substation infrastructure providing a potential connectivity advantage that the development team sought to protect and activate. SSE Energy Solutions was subsequently engaged on connectivity options, working alongside EOS to model the grid import application strategy.</p>
+        </div>
+      </div>
+
+      <!-- 05. Deliverables -->
+      <div class="section-block">
+        <span class="section-label">05 — Deliverables</span>
+        <h2 class="section-title">What the EOS-led development team produced</h2>
+        <div class="deliverables-grid">
+          <div class="del-card">
+            <div class="del-card-label">Outline Proposition</div>
+            <div class="del-card-body">Full site-wide energy network concept with proposed solution components, co-investment structure, and strategic rationale for CCR board consideration.</div>
+          </div>
+          <div class="del-card">
+            <div class="del-card-label">Corporate Structure</div>
+            <div class="del-card-body">Three-entity SPV model (GridCo / RenewCo / FlexCo) with equity ownership principles, JDA framework, and governance architecture.</div>
+          </div>
+          <div class="del-card">
+            <div class="del-card-label">Site Masterplan</div>
+            <div class="del-card-body">Spatial energy masterplan mapping generation, storage, distribution and connectivity assets across the 500-acre site, with phased development logic.</div>
+          </div>
+          <div class="del-card">
+            <div class="del-card-label">Next Steps Roadmap</div>
+            <div class="del-card-body">Defined pathway from Heads of Terms through technical modelling, energy masterplan, financial model, and Board investment paper for both parties.</div>
+          </div>
+        </div>
+        <div class="pills">
+          <span class="pill">Microgrid design concept</span>
+          <span class="pill">JDA structuring</span>
+          <span class="pill">SPV architecture</span>
+          <span class="pill">Anchor tenant strategy</span>
+          <span class="pill">Site masterplanning</span>
+          <span class="pill">Grid connectivity analysis</span>
+          <span class="pill">Stakeholder engagement</span>
+          <span class="pill">Technology stack evaluation</span>
+          <span class="pill">ESG proposition</span>
+          <span class="pill">Welsh public sector procurement</span>
+        </div>
+      </div>
+
+      <!-- 06. Outcome -->
+      <div class="section-block">
+        <span class="section-label">06 — Outcome &amp; Reflection</span>
+        <h2 class="section-title">Exogenous governance factors, not proposition failure</h2>
+        <div class="prose">
+          <p>The project did not proceed to JDA execution during the 2021–2023 development window. Concerns at the CCR governance level — relating to the appropriate role of the regional body in directly co-owning and operating commercial energy infrastructure — created a headwind that the proposition's commercial merits alone could not overcome at that time. These were institutional and political factors, not failures of the technical or financial case.</p>
+          <p>The development proposition itself has proven robust: CCR subsequently established CCR Energy Ltd as a dedicated vehicle for exactly this kind of activity, and the site is now progressing under the CCR Energy Business Plan 2025–2028 — a programme that closely mirrors the architecture EOS originally conceived, centred on phased renewable energy development, grid connectivity, anchor tenant attraction, and an innovation hub. The strategic direction EOS charted is now being followed.</p>
+        </div>
+        <div class="outcome-banner">
+          <div class="outcome-banner-label">Institutional capability built</div>
+          <p>In complex public-private energy origination, navigating the governance rhythms of local authority-backed bodies requires the same rigour as the technical and financial proposition itself. The Aberthaw programme extended EOS's capability across the full lifecycle of a large-scale microgrid origination — from concept through commercial structuring and multi-party stakeholder engagement — in a genuinely complex institutional environment. The cross-team collaboration with specialist partners, including FTP's contribution during the early origination phase, strengthened the depth of technical and commercial analysis that underpinned the proposition.</p>
+        </div>
+        <div class="insights">
+          <div style="margin-top:1.25rem; margin-bottom:0.3rem;">
+            <span style="font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted);">Transferable insights</span>
+          </div>
+          <div class="insight-item">
+            <div class="insight-num">01</div>
+            <div class="insight-text">Governance readiness in the public sector counterparty is as important as the commercial proposition itself — the speed of institutional decision-making must be factored into development programme design, particularly where multi-authority ownership structures are involved.</div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-num">02</div>
+            <div class="insight-text">The 'early load anchor' strategy — securing a large-scale data centre operator to underwrite initial grid demand — is structurally sound and has since been independently validated by SSE's 2024 connectivity analysis for the same site.</div>
+          </div>
+          <div class="insight-item">
+            <div class="insight-num">03</div>
+            <div class="insight-text">Modular SPV architectures that separate grid infrastructure (GridCo), generation (RenewCo), and storage/flexibility (FlexCo) provide superior financing flexibility compared to single-entity structures — each component can attract capital appropriate to its risk profile.</div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- RIGHT: SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- Project facts -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-head">
+          <div class="sidebar-card-head-dot"></div>
+          <div class="sidebar-card-head-title">Project Facts</div>
+        </div>
+        <div class="sidebar-card-body">
+          <div class="kv-row">
+            <span class="kv-key">Location</span>
+            <span class="kv-val eos">Aberthaw, Vale of Glamorgan</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Region</span>
+            <span class="kv-val">Cardiff Capital Region, Wales</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Site area</span>
+            <span class="kv-val">~500 acres (200 acres developable)</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Programme</span>
+            <span class="kv-val">2021–2023</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Lead developer</span>
+            <span class="kv-val eos">EOS (Energy Optimisation Solutions)</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Partners</span>
+            <span class="kv-val">PEP, QIP; FTP (origination support)</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Public counterparty</span>
+            <span class="kv-val">Cardiff Capital Region (CCR)</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Stage reached</span>
+            <span class="kv-val gold">Outline proposition / Pre-JDA</span>
+          </div>
+          <div style="margin-top:0.85rem; padding-top:0.85rem; border-top:1px solid var(--rule-light);">
+            <div style="font-size:0.75rem; color:var(--muted); margin-bottom:0.3rem;">Lead developer</div>
+            <div style="font-size:0.82rem; font-weight:500; color:var(--ink);">EOS Development Team</div>
+            <div style="font-size:0.75rem; color:var(--muted); margin-bottom:0.5rem;">Energy Optimisation Solutions Ltd</div>
+            <div style="font-size:0.75rem; color:var(--muted); margin-bottom:0.3rem;">Specialist origination support</div>
+            <div style="font-size:0.82rem; font-weight:500; color:var(--ink);">First Tactical Projects (FTP)</div>
+            <div style="font-size:0.75rem; color:var(--muted);">Junior partner — early-stage development input</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solution components -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-head">
+          <div class="sidebar-card-head-dot"></div>
+          <div class="sidebar-card-head-title">Solution Components</div>
+        </div>
+        <div class="sidebar-card-body">
+          <div class="comp-list">
+            <div class="comp-row">
+              <div class="comp-dot solar"></div>
+              <span class="comp-label">Solar PV generation</span>
+              <span class="comp-note">On-site</span>
+            </div>
+            <div class="comp-row">
+              <div class="comp-dot wind"></div>
+              <span class="comp-label">Wind generation</span>
+              <span class="comp-note">On &amp; offsite</span>
+            </div>
+            <div class="comp-row">
+              <div class="comp-dot storage"></div>
+              <span class="comp-label">Battery energy storage (BESS)</span>
+              <span class="comp-note">FlexCo</span>
+            </div>
+            <div class="comp-row">
+              <div class="comp-dot grid"></div>
+              <span class="comp-label">Microgrid &amp; distribution</span>
+              <span class="comp-note">GridCo / SCADA</span>
+            </div>
+            <div class="comp-row">
+              <div class="comp-dot hydrogen"></div>
+              <span class="comp-label">Hydrogen electrolyser</span>
+              <span class="comp-note">Innovation phase</span>
+            </div>
+            <div class="comp-row">
+              <div class="comp-dot micro"></div>
+              <span class="comp-label">EV charging infrastructure</span>
+              <span class="comp-note">Site-wide</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Corporate structure -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-head">
+          <div class="sidebar-card-head-dot"></div>
+          <div class="sidebar-card-head-title">Proposed Structure</div>
+        </div>
+        <div class="sidebar-card-body">
+          <div class="entity-list">
+            <div class="entity-row">
+              <span class="entity-tag tag-public">JDA</span>
+              <span class="entity-desc">Joint Development Agreement — EOS/PEP/QIP &amp; CCR</span>
+            </div>
+            <div class="entity-row">
+              <span class="entity-tag tag-eos">RenewCo</span>
+              <span class="entity-desc">Renewable generation assets on &amp; offsite</span>
+            </div>
+            <div class="entity-row">
+              <span class="entity-tag tag-eos">FlexCo</span>
+              <span class="entity-desc">BESS and flexible capacity; grid services</span>
+            </div>
+            <div class="entity-row">
+              <span class="entity-tag tag-eos">GridCo</span>
+              <span class="entity-desc">Site distribution network; SCADA operation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key benefits -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-head">
+          <div class="sidebar-card-head-dot"></div>
+          <div class="sidebar-card-head-title">Proposition Benefits</div>
+        </div>
+        <div class="sidebar-card-body">
+          <div class="kv-row">
+            <span class="kv-key">For CCR</span>
+            <span class="kv-val" style="font-size:0.75rem;">Zero carbon offer for tenants; marketing differentiation</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">For tenants</span>
+            <span class="kv-val" style="font-size:0.75rem;">Predictable, cost-competitive green energy</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Capital risk</span>
+            <span class="kv-val" style="font-size:0.75rem;">Borne by private partners; not CCR</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">Revenue model</span>
+            <span class="kv-val" style="font-size:0.75rem;">PPA + grid services + anchor tenant</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">ESG</span>
+            <span class="kv-val" style="font-size:0.75rem;">Jobs, local supply chain, skills, biodiversity</span>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <div>
+    <div class="footer-brand">First Tactical Projects</span></div>
+    <div class="footer-date" style="margin-top:0.4rem;">Case Study · Published Jan 2026</div>
+  </div>
+  <p class="footer-note">Commercially sensitive counterparty financial information has been omitted. Site dimensions and programme dates are drawn from publicly available proposal documentation. This case study is published by FTP for capability demonstration purposes. References to EOS reflect their documented involvement in the origination phase of this programme.</p>
+</footer>
+
+</body>
+</html>
